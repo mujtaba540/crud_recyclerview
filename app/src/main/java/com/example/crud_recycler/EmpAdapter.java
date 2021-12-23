@@ -26,13 +26,13 @@ public class EmpAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolde
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView emp_name,emp_loc,emp_des;
+        private TextView emp_name,emp_loc,empl_des;
         private Button upt_btn,dlt_btn;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             emp_name=itemView.findViewById(R.id.emp_name);
             emp_loc=itemView.findViewById(R.id.emp_loc);
-            emp_des=itemView.findViewById(R.id.emp_des);
+            empl_des=itemView.findViewById(R.id.emp_des);
             upt_btn=itemView.findViewById(R.id.update);
             dlt_btn=itemView.findViewById(R.id.dlt);
         }
