@@ -49,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DbHelper db=new DbHelper(MainActivity.this);
+                data=db.allData();
                 setAdapter();
+
             }
         });
 

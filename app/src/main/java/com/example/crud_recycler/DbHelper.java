@@ -39,14 +39,21 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<Employee> allData(){
+    public ArrayList<Employee> allData(){
         String query="SELECT * FROM EMPLOYEE";
-        List<Employee>data=new ArrayList<Employee>();
+        ArrayList<Employee>data=new ArrayList<Employee>();
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res=db.rawQuery(query);
+        Cursor res=db.rawQuery(query,null);
         if(res.moveToFirst()){
+            do {
+                String name=res.getString(1);
+                int age=res.getInt(2);
+                data.add(new Employee(age,name));
+            }while(res.moveToNext());
+        }else{
 
         }
-
+        res.close();
+        return data;
     }
 }
