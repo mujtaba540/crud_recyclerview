@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.myrec);
         data=new ArrayList<>();
 
+        DbHelper db=new DbHelper(this);
+
         setEmployeeInfo();
         setAdapter();
     }
