@@ -1,10 +1,12 @@
 package com.example.crud_recycler;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +16,11 @@ import java.util.ArrayList;
 public class EmpAdapter extends RecyclerView.Adapter<EmpAdapter.MyViewHolder> {
     @NonNull
     private ArrayList<Employee> data;
-    public EmpAdapter(ArrayList<Employee> data){
+    private Context context;
+    public EmpAdapter(ArrayList<Employee> data, Context context){
+
         this.data=data;
+        this.context=context;
     }
 
 
@@ -30,7 +35,25 @@ public class EmpAdapter extends RecyclerView.Adapter<EmpAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String name=data.get(position).getName();
+        int age_emp=data.get(position).getAge();
+
         holder.emp_name.setText(name);
+        holder.age.setText(Integer.toString(age_emp));
+
+        holder.upt_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.dlt_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Override
@@ -39,13 +62,12 @@ public class EmpAdapter extends RecyclerView.Adapter<EmpAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView emp_name,emp_loc,emp_des;
+        private TextView emp_name,age;
         private Button upt_btn,dlt_btn;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             emp_name=itemView.findViewById(R.id.emp_name);
-            emp_loc=itemView.findViewById(R.id.emp_loc);
-            emp_des=itemView.findViewById(R.id.emp_des);
+            age=itemView.findViewById(R.id.emp_age);
             upt_btn=itemView.findViewById(R.id.update);
             dlt_btn=itemView.findViewById(R.id.dlt);
         }

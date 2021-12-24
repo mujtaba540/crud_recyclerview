@@ -1,30 +1,14 @@
 package com.example.crud_recycler;
 
 public class Employee {
-   private String Name, Designation, loc;
+   private String Name;
+   private  int age;
 
-    public Employee(String name, String designation, String loc) {
-        Name = name;
-        Designation = designation;
-        this.loc = loc;
+    public Employee(int age,String name) {
+        this.age = age;
+        this.Name=name;
     }
 
-
-    public String getDesignation() {
-        return Designation;
-    }
-
-    public void setDesignation(String designation) {
-        Designation = designation;
-    }
-
-    public String getLoc() {
-        return loc;
-    }
-
-    public void setLoc(String loc) {
-        this.loc = loc;
-    }
 
     public String getName() {
         return Name;
@@ -32,5 +16,12 @@ public class Employee {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
 }
