@@ -43,15 +43,16 @@ public class EmpAdapter extends RecyclerView.Adapter<EmpAdapter.MyViewHolder> {
         holder.upt_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
-            }
+                DbHelper db=new DbHelper(context);
+                db.update(name,age_emp,1);
+                }
         });
 
         holder.dlt_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show();
-
+                DbHelper db=new DbHelper(context);
+                db.delete(name,age_emp,1);
             }
         });
     }
